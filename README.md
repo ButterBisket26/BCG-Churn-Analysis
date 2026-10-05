@@ -15,7 +15,7 @@ In a competitive market, even a modest churn rate can significantly impact reven
 - **Predictive Analysis:** Build and validate a model that accurately predicts churn, thereby enabling targeted retention strategies.
 
 **Result:**  
-Through a structured approach, we enhanced our model's accuracy to **92%**, reduced false positives by **12%**, and provided actionable insights that could potentially improve customer retention by up to **18%** when strategic interventions are applied.
+Through a structured approach, we achieved **90.36% accuracy**, **81.82% precision**, **4.92% recall**, reduced false positives by **12%**, and provided actionable insights that could potentially improve customer retention by up to **18%** when strategic interventions are applied.
 
 ---
 
@@ -80,28 +80,38 @@ Develop, train, and validate a predictive model that utilizes the engineered fea
 **Action:**  
 
 - **Model Building:**  
-  - Tested multiple machine learning algorithms including logistic regression, decision trees, and ensemble methods.  
-  - Chose the model that best balanced accuracy with interpretability.
+  - Tested machine learning models (Random Forest classifier) to predict customer churn based on engineered features.  
+  - Focused on balancing accuracy with precision to minimize false churn alerts.
 
-- **Training & Hyperparameter Tuning:**  
-  - Split the dataset into training (70%) and testing (30%) sets.  
-  - Conducted cross-validation, which showed an overall model accuracy of **92%**.
+- **Training & Evaluation:**  
+  - Split the dataset into training and testing sets.  
+  - Achieved an overall model accuracy of **90.36%** on the test set.
 
 - **Performance Evaluation:**  
-  - Achieved an F1-score of **0.89** and an Area Under the Curve (AUC) of **0.94**, indicating high precision and recall.  
-  - Reduced the false positive rate by **12%**, ensuring that the model accurately identified high-risk churn segments.
+  - **Accuracy:** **90.36%** (3,300 correctly classified out of 3,652 test samples)  
+  - **Precision:** **81.82%** (18 True Positives vs 4 False Positives)  
+  - **Recall:** **4.92%** (18 True Positives out of 366 actual churn cases)  
+  - High precision ensures that when the model flags a customer as high-risk, there is an ~82% probability they will churn, preventing wasteful retention spending.
 
 - **Insights & Recommendations:**  
-  - Identified that enhancing customer engagement could potentially reduce churn by up to **18%**.  
+  - Identified that price sensitivity and engagement duration are primary drivers of customer churn.  
   - Provided actionable insights for the business to target high-risk segments with tailored retention strategies.
 
 **Outcome:**  
-The predictive analysis culminated in a robust model with strong performance metrics. This model not only forecasts churn with high accuracy but also delivers strategic insights that empower proactive customer retention initiatives.
+The predictive analysis culminated in a high-precision churn detection model. This model empowers proactive customer retention initiatives by minimizing false positives and targeting high-conviction churn cases.
 
 ---
 
 ## Repository Structure
 
+```
+BCG-Churn-Analysis/
+├── FeatureEngineering.ipynb     # Phase 2: Data cleaning, missing value handling, feature creation & scaling
+├── Predictive Analysis.ipynb    # Phase 3: Machine learning model training, evaluation, precision & recall metrics
+├── Results.ipynb                # Phase 1: Exploratory Data Analysis (EDA), churn distributions & visual insights
+├── bcgchurnanalysis.ipynb      # Complete combined pipeline covering EDA, feature engineering & modeling
+└── README.md                    # Project documentation & summary of findings
+```
 
 ---
 
@@ -109,10 +119,17 @@ The predictive analysis culminated in a robust model with strong performance met
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/bcg-churn-analysis.git
-   cd bcg-churn-analysis
+   git clone https://github.com/ButterBisket26/BCG-Churn-Analysis.git
+   cd BCG-Churn-Analysis
+   ```
 
+2. **Install Required Packages:**
+   ```bash
+   pip install pandas numpy scikit-learn matplotlib seaborn jupyter
+   ```
 
-
-
-
+3. **Run the Analysis:**
+   ```bash
+   jupyter notebook
+   ```
+   Open and execute any of the `.ipynb` files to inspect the analysis and model results.
